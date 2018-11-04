@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta name="author" content="Taybin Rutkin">
+		<meta name="description" content="The Technical and the Transcendental">
+		<meta name="generator" content="Hugo 0.50" />
+		<title>smart counting with dynamic_bitset and boost.framework &middot; Coffee&#39;s for Closures</title>
+		<link rel="shortcut icon" href="https://coffeesforclosuresimages/favicon.ico">
+		<link rel="stylesheet" href="https://coffeesforclosurescss/style.css">
+		<link rel="stylesheet" href="https://coffeesforclosurescss/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://coffeesforclosurescss/font-awesome.min.css">
+		
+
+		
+		<link href="https://coffeesforclosures/index.xml" rel="alternate" type="application/rss+xml" title="Coffee&#39;s for Closures" />
+		
+
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://coffeesforclosures'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://coffeesforclosuresposts'>Archive</a>
+	<a href='https://coffeesforclosurestags'>Tags</a>
+	<a href='https://coffeesforclosuresabout'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://coffeesforclosures/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        smart counting with dynamic_bitset and boost.framework
+                    </h1>
+                    <h2 class="headline">
+                    Apr 7, 2007 21:25
+                    · 251 words
+                    · 2 minute read
+                      <span class="tags">
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                
+                <section id="post-body">
+                    <p>In <a href="http://ardour.org">Ardour</a>, we have numbered audio tracks named Track 1, Track 2, and so on. Most software when faced with what to name the next created track will just use a static int that is incremented with each track.</p>
+
+<p>With Ardour, we wanted to make it smarter. We wanted to be able to re-add Track 1 if the first track was deleted. But not if the first track had just been renamed. We use C++ for the libardour backend, so we were in luck.</p>
+
+<p>The <a href="http://www.sgi.com/tech/stl/">STL</a> includes <a href="http://www.sgi.com/tech/stl/bitset.html">bitset</a>, a very handy wrapper for what&#8217;s essentially an array of booleans, but optimized for space.</p>
+
+<p>The technique is: look for the first false slot in the bitset. The index is the number of the new track. When a track is deleted, mark the slot as false. This lets the user rename a track and it won&#8217;t interfere with the counting.</p>
+
+<p>The one problem with this is the size of a bitset is set at compile time. You could use <a href="http://www.sgi.com/tech/stl/bit_vector.html">vector<bool></a>, but its use is <a href="http://www.informit.com/guides/content.asp?g=cplusplus&amp;seqNum=98&amp;rl=1">discouraged</a>. Luckily, <a href="http://boost.org">boost.org</a> has an implementation of <a href="http://boost.org/libs/dynamic_bitset/dynamic_bitset.html">dynamic_bitset</a> which can be grown during runtime.</p>
+
+<p>This smart counting gives Ardour a polish and the users love it.</p>
+
+<p>I&#8217;ve created a <a href="http://files.penguinsounds.org/frameworks/boost.framework.zip">boost.framework</a> for those of you lucky enough to be using C++ on OS X. It&#8217;s all header files, so you only need to include it in the frameworks path. It doesn&#8217;t need to be linked in. It unzips to a large size, but you only pay for what you use.</p>
+
+                </section>
+            </article>
+
+            
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fcoffeesforclosures%2f2007-04-07-smart-counting-with-dynamic_bitset-and-boost-framework%2f - smart%20counting%20with%20dynamic_bitset%20and%20boost.framework by @your_twitter_id"><span class="icon-twitter"> tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+            
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/taybinrutkin">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/taybin">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2018 <i class="fa fa-heart" aria-hidden="true"></i> Taybin Rutkin
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://coffeesforclosuresjs/jquery-3.3.1.min.js"></script>
+<script src="https://coffeesforclosuresjs/main.js"></script>
+<script src="https://coffeesforclosuresjs/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+    </body>
+</html>

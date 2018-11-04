@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta name="author" content="Taybin Rutkin">
+		<meta name="description" content="The Technical and the Transcendental">
+		<meta name="generator" content="Hugo 0.50" />
+		<title>How to setup a pretty good dev environment on the mac &middot; Coffee&#39;s for Closures</title>
+		<link rel="shortcut icon" href="https://coffeesforclosuresimages/favicon.ico">
+		<link rel="stylesheet" href="https://coffeesforclosurescss/style.css">
+		<link rel="stylesheet" href="https://coffeesforclosurescss/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://coffeesforclosurescss/font-awesome.min.css">
+		
+
+		
+		<link href="https://coffeesforclosures/index.xml" rel="alternate" type="application/rss+xml" title="Coffee&#39;s for Closures" />
+		
+
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://coffeesforclosures'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://coffeesforclosuresposts'>Archive</a>
+	<a href='https://coffeesforclosurestags'>Tags</a>
+	<a href='https://coffeesforclosuresabout'>About</a>
+
+	
+
+	
+	<a class="cta" href="https://coffeesforclosures/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        How to setup a pretty good dev environment on the mac
+                    </h1>
+                    <h2 class="headline">
+                    Sep 28, 2011 22:04
+                    · 174 words
+                    · 1 minute read
+                      <span class="tags">
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                
+                <section id="post-body">
+                    <p>(This was a quick write up for a coworker, but others might find it useful)</p>
+
+<p>This assumes you have XCode. I mean, really now.</p>
+
+<p>First thing to do is install <a href="http://mxcl.github.com/homebrew/">mac homebrew</a>. It&#8217;s a package manager of useful open source software. You install it by pasting into the terminal:</p>
+
+<pre>/usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/gist/323731)"
+</pre>
+
+<p>then just to make sure it&#8217;s working, run:</p>
+
+<pre>brew install -v git
+</pre>
+
+<p>Next we want to install the <a href="http://npmjs.org/">node package manager</a>.</p>
+
+<p>It&#8217;s a simple</p>
+
+<pre>curl http://npmjs.org/install.sh | sh
+</pre>
+
+<p>Lastly, I like to setup <a href="http://beginrescueend.com/">rvm</a>, for managing multiple ruby installations and keeping my base machine clean of stray gems.</p>
+
+<pre>bash &lt; &lt;(curl -s https://rvm.beginrescueend.com/install/rvm)
+</pre>
+
+<p>RVM is a little more complicated since you also have to add a little something to your shell file so that the paths are loaded correctly</p>
+
+<pre>echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+</pre>
+
+<p>That&rsquo;s *about* it. I&rsquo;m still looking into how to setup the RVM equivalent for python, but it seems that community is still figuring out their tools and a clear solution hasn&rsquo;t emerged yet.</p>
+
+                </section>
+            </article>
+
+            
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fcoffeesforclosures%2f2011-09-28-how-to-setup-a-pretty-good-dev-environment-on-the-mac%2f - How%20to%20setup%20a%20pretty%20good%20dev%20environment%20on%20the%20mac by @your_twitter_id"><span class="icon-twitter"> tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+            
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/taybinrutkin">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/taybin">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2018 <i class="fa fa-heart" aria-hidden="true"></i> Taybin Rutkin
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://coffeesforclosuresjs/jquery-3.3.1.min.js"></script>
+<script src="https://coffeesforclosuresjs/main.js"></script>
+<script src="https://coffeesforclosuresjs/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+    </body>
+</html>
