@@ -21,6 +21,8 @@ hasCJKLanguage = false
 	enableDisqus = false
 	disqusShortname = "your_disqus_short_name"
 
+    enableCommentBox = true
+    commentBoxID = "5650452045627392-proj"
 
 	enableSummary = true
 	# Set the value to true if use description in post front matter replace content summary
@@ -45,7 +47,7 @@ hasCJKLanguage = false
 
 	# Navigation links
 	home = ""
-	about = ""
+#about = ""
 	archive = ""
 	subscribe = ""
 
